@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "chat",
   "private": true,
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.23.0",
