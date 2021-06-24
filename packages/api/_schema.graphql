@@ -1,0 +1,12 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type QueryPlaceholder {
+  placeholder: String!
+}
+
+type Query {
+  """At least one query is needed in order for GraphQL to work"""
+  placeholder: QueryPlaceholder!
+}
