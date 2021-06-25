@@ -1,3 +1,6 @@
+server:
+  port: 5000
+
 graphql:
   debug: true
   playground: true
