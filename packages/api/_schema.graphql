@@ -2,11 +2,39 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type QueryPlaceholder {
-  placeholder: String!
+"""User's general information object"""
+type AuthType {
+  """User ID"""
+  id: ID!
+
+  """User login"""
+  login: String!
+}
+
+"""Payload for signing in"""
+type SignInPayload {
+  """User token"""
+  token: String!
+
+  """Auth payload"""
+  me: AuthType!
 }
 
 type Query {
   """At least one query is needed in order for GraphQL to work"""
-  placeholder: QueryPlaceholder!
+  me: AuthType!
+}
+
+type Mutation {
+  """Get authentication token and auth info"""
+  signIn(input: SignInInput!): SignInPayload!
+}
+
+"""Input to sign in"""
+input SignInInput {
+  """User's login"""
+  login: String!
+
+  """User's password"""
+  password: String!
 }

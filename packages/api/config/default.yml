@@ -8,3 +8,6 @@ graphql:
   autoSchemaFile: _schema.graphql
   dateScalarMode: isoDate
   depthLimit: 10
+
+jwt:
+  secret: FLfgscuaISmy39BJ5n5ru8
