@@ -15,7 +15,7 @@ Simple NestJS + ReactJS text chat
 ## Technologies
 
 * GraphQL
-* TypeORM
+* Mongoose
 * MongoDB
 * Websocket messaging
 * Jest

@@ -1,18 +1,28 @@
-import { Field, ObjectType, Query, Resolver } from "@nestjs/graphql"
-
-@ObjectType()
-class QueryPlaceholder {
-  @Field()
-  placeholder: string
-}
+import { Args, Mutation, Query, Resolver } from "@nestjs/graphql"
+import { User } from "../users/users.service"
+import { AuthService } from "./auth.service"
+import { AuthType } from "./types/auth.type"
+import { SignInInput } from "./types/sign-in.input"
+import { SignInPayload } from "./types/sign-in.payload"
+import { CurrentUser } from "./user.decorator"
 
 @Resolver("Auth")
 export class AuthResolver {
-  @Query((): typeof QueryPlaceholder => QueryPlaceholder, {
-    name: "placeholder",
+  constructor(private readonly authService: AuthService) {}
+
+  @Query((): typeof AuthType => AuthType, {
+    name: "me",
     description: "At least one query is needed in order for GraphQL to work",
   })
-  getPlaceholder(): QueryPlaceholder {
-    return new QueryPlaceholder()
+  async me(@CurrentUser() user: User): Promise<AuthType> {
+    return await this.authService.me(user)
+  }
+
+  @Mutation(() => SignInPayload, {
+    name: "signIn",
+    description: "Get authentication token and auth info",
+  })
+  async signIn(@Args("input") input: SignInInput): Promise<SignInPayload> {
+    return await this.authService.signIn(input)
   }
 }
