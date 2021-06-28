@@ -114,6 +114,7 @@ module.exports = {
         replacements: {
           props: false,
           e2e: false,
+          db: false,
         },
       },
     ],

@@ -11,3 +11,6 @@ graphql:
 
 jwt:
   secret: FLfgscuaISmy39BJ5n5ru8
+
+db:
+  uri: mongodb://chat:chat@localhost:27017/admin
