@@ -11,6 +11,15 @@ type AuthType {
   login: String!
 }
 
+"""Payload for signing in"""
+type SignInPayload {
+  """User token"""
+  token: String
+
+  """Auth payload"""
+  me: AuthType
+}
+
 """Payload for signing up"""
 type SignUpPayload {
   """Created user ID"""
@@ -18,15 +27,6 @@ type SignUpPayload {
 
   """Auth payload"""
   record: AuthType
-}
-
-"""Payload for signing in"""
-type SignInPayload {
-  """User token"""
-  token: String!
-
-  """Auth payload"""
-  me: AuthType!
 }
 
 type Query {

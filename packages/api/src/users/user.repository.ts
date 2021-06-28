@@ -8,18 +8,12 @@ import { User } from "./user.schema"
 export class UserRepository {
   constructor(@InjectModel(User.name) readonly userModel: Model<User>) {}
 
-  async createUser(input: SignUpInput): Promise<User> {
-    const { login, password } = input
-
-    const existingUser = await this.userModel.findOne({ login })
-
-    if (existingUser) {
-      throw new ConflictException("api.userExists")
-    }
+  async createUser(input: SignUpInput, passwordHash: string): Promise<User> {
+    const { login } = input
 
     const user = new this.userModel()
     user.login = login
-    user.password = password
+    user.password = passwordHash
 
     return await user.save()
   }

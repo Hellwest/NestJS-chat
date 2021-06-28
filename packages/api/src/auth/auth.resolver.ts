@@ -1,5 +1,8 @@
+import { UseGuards } from "@nestjs/common"
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql"
-import { User } from "../users/users.service"
+
+import { User } from "../users/user.schema"
+import { GqlAuthGuard } from "./auth.guard"
 import { AuthService } from "./auth.service"
 import { AuthType } from "./types/auth.type"
 import { SignInInput } from "./types/sign-in.input"
@@ -16,6 +19,7 @@ export class AuthResolver {
     name: "me",
     description: "At least one query is needed in order for GraphQL to work",
   })
+  @UseGuards(GqlAuthGuard)
   async me(@CurrentUser() user: User): Promise<AuthType> {
     return await this.authService.me(user)
   }
