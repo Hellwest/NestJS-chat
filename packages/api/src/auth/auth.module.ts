@@ -1,4 +1,5 @@
 import { Module } from "@nestjs/common"
+import { UserRepository } from "../users/user.repository"
 import { UsersModule } from "../users/users.module"
 import { AuthResolver } from "./auth.resolver"
 import { AuthService } from "./auth.service"
@@ -6,6 +7,6 @@ import { JwtStrategy } from "./jwt.strategy"
 
 @Module({
   imports: [UsersModule],
-  providers: [AuthResolver, AuthService, JwtStrategy],
+  providers: [AuthResolver, AuthService, JwtStrategy, UserRepository],
 })
 export class AuthModule {}

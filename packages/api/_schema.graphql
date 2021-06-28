@@ -11,6 +11,15 @@ type AuthType {
   login: String!
 }
 
+"""Payload for signing up"""
+type SignUpPayload {
+  """Created user ID"""
+  recordId: String
+
+  """Auth payload"""
+  record: AuthType
+}
+
 """Payload for signing in"""
 type SignInPayload {
   """User token"""
@@ -26,8 +35,20 @@ type Query {
 }
 
 type Mutation {
+  """Register in the chat app"""
+  signUp(input: SignUpInput!): SignUpPayload!
+
   """Get authentication token and auth info"""
   signIn(input: SignInInput!): SignInPayload!
+}
+
+"""Input for signing up"""
+input SignUpInput {
+  """User name"""
+  login: String!
+
+  """User password"""
+  password: String!
 }
 
 """Input to sign in"""
