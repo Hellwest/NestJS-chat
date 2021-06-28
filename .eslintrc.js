@@ -76,7 +76,7 @@ module.exports = {
     "filenames/no-index": "error",
 
     // ts
-    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-member-accessibility": [
       "warn",
       { accessibility: "no-public" },
@@ -114,6 +114,7 @@ module.exports = {
         replacements: {
           props: false,
           e2e: false,
+          db: false,
         },
       },
     ],
