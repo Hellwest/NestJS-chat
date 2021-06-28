@@ -7,9 +7,12 @@ export class SignInPayload {
     Object.assign(this, { token, me })
   }
 
-  @Field({ description: "User token" })
-  token: string
+  @Field({ description: "User token", nullable: true })
+  token?: string
 
-  @Field((): typeof AuthType => AuthType, { description: "Auth payload" })
-  me: AuthType
+  @Field((): typeof AuthType => AuthType, {
+    description: "Auth payload",
+    nullable: true,
+  })
+  me?: AuthType
 }

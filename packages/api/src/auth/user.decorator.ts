@@ -1,5 +1,6 @@
 import { createParamDecorator } from "@nestjs/common"
-import { User } from "../users/users.service"
+
+import { User } from "../users/user.schema"
 
 type GqlResolverFields = [unknown, unknown, { req: any }, unknown] // TODO: improve type definitions
 
