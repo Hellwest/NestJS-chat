@@ -67,6 +67,42 @@ type EditRoomPayload {
   record: RoomType!
 }
 
+"""Chat user"""
+type UserType {
+  """User ID"""
+  id: ID!
+
+  """User login"""
+  login: String!
+
+  """User creation date"""
+  createdAt: DateTime!
+
+  """User update date"""
+  updatedAt: DateTime!
+}
+
+"""Chat message object"""
+type MessageType {
+  """Message ID"""
+  id: ID!
+
+  """Message text"""
+  text: String!
+
+  """User that sent the message"""
+  sender: UserType!
+
+  """Room in which the message has been sent"""
+  room: RoomType!
+
+  """Message creation date"""
+  createdAt: DateTime!
+
+  """Message update date"""
+  updatedAt: DateTime!
+}
+
 type Query {
   """At least one query is needed in order for GraphQL to work"""
   me: AuthType!
@@ -76,6 +112,12 @@ type Query {
 
   """Get room info"""
   getRoom(id: ID!): RoomType
+
+  """Get all messages in a room"""
+  getMessages(
+    """ID of a room to get messages of"""
+    roomId: String!
+  ): [MessageType!]!
 }
 
 type Mutation {
@@ -93,6 +135,12 @@ type Mutation {
 
   """Delete a chat room"""
   deleteRoom(id: ID!): RoomType!
+
+  """Send a message to the chat"""
+  sendMessage(input: SendMessageInput!): MessageType!
+
+  """Edit a message"""
+  editMessage(input: EditMessageInput!): MessageType!
 }
 
 """Input for signing up"""
@@ -126,4 +174,22 @@ input EditRoomInput {
 
   """New name of the room"""
   name: String!
+}
+
+"""Input for sending a message"""
+input SendMessageInput {
+  """Room ID"""
+  roomId: ID!
+
+  """Message text"""
+  text: String!
+}
+
+"""Input for editing a message"""
+input EditMessageInput {
+  """Message ID"""
+  id: ID!
+
+  """Edited message text"""
+  text: String!
 }

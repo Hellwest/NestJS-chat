@@ -10,5 +10,6 @@ import { RoomsService } from "./rooms.service"
     MongooseModule.forFeature([{ name: Room.name, schema: RoomSchema }]),
   ],
   providers: [RoomsResolver, RoomsService, RoomRepository],
+  exports: [RoomsService],
 })
 export class RoomsModule {}
