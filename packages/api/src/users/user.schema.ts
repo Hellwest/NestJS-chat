@@ -1,7 +1,5 @@
-import { Field, ID, ObjectType } from "@nestjs/graphql"
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
-import { GraphQLScalarType } from "graphql"
-import { Document, Types } from "mongoose"
+import { Document } from "mongoose"
 
 @Schema({ timestamps: true })
 export class User extends Document {
