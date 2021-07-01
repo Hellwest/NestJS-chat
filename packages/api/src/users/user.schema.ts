@@ -1,13 +1,21 @@
+import { Field, ID, ObjectType } from "@nestjs/graphql"
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
-import { Document } from "mongoose"
+import { GraphQLScalarType } from "graphql"
+import { Document, Types } from "mongoose"
 
-@Schema()
+@Schema({ timestamps: true })
 export class User extends Document {
-  @Prop()
+  @Prop({ required: true })
   login: string
 
-  @Prop()
+  @Prop({ required: true })
   password: string
+
+  @Prop()
+  createdAt: Date
+
+  @Prop()
+  updatedAt: Date
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
