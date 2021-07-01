@@ -1,12 +1,13 @@
 import { Module } from "@nestjs/common"
 import { GraphQLModule } from "@nestjs/graphql"
+import { MongooseModule } from "@nestjs/mongoose"
 
 import { AppController } from "./app.controller"
 import { graphQLConfig } from "./config/graphql.config"
 import { AuthModule } from "./auth/auth.module"
 import { UsersModule } from "./users/users.module"
-import { MongooseModule } from "@nestjs/mongoose"
 import { dbConfig } from "./config/db.config"
+import { RoomsModule } from "./rooms/rooms.module"
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { dbConfig } from "./config/db.config"
     MongooseModule.forRoot(dbConfig.uri),
     AuthModule,
     UsersModule,
+    RoomsModule,
   ],
   controllers: [AppController],
 })
