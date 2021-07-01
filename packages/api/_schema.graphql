@@ -29,9 +29,53 @@ type SignUpPayload {
   record: AuthType
 }
 
+"""Room object"""
+type RoomType {
+  """Room ID"""
+  id: ID!
+
+  """Room name"""
+  name: String!
+
+  """Room creation date"""
+  createdAt: DateTime!
+
+  """Room update date"""
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""CreateRoom response object"""
+type CreateRoomPayload {
+  """Room ID"""
+  recordId: String!
+
+  """Room object"""
+  record: RoomType!
+}
+
+"""Payload for editing a room"""
+type EditRoomPayload {
+  """ID of an edited room"""
+  recordId: String!
+
+  """The edited room object"""
+  record: RoomType!
+}
+
 type Query {
   """At least one query is needed in order for GraphQL to work"""
   me: AuthType!
+
+  """Get a list of rooms"""
+  getRooms: [RoomType!]!
+
+  """Get room info"""
+  getRoom(id: ID!): RoomType
 }
 
 type Mutation {
@@ -40,6 +84,15 @@ type Mutation {
 
   """Get authentication token and auth info"""
   signIn(input: SignInInput!): SignInPayload!
+
+  """Create a chat room"""
+  createRoom(input: CreateRoomInput!): CreateRoomPayload!
+
+  """Edit a chat room"""
+  editRoom(input: EditRoomInput!): EditRoomPayload!
+
+  """Delete a chat room"""
+  deleteRoom(id: ID!): RoomType!
 }
 
 """Input for signing up"""
@@ -58,4 +111,19 @@ input SignInInput {
 
   """User's password"""
   password: String!
+}
+
+"""Input for creating a room"""
+input CreateRoomInput {
+  """Room name"""
+  name: String!
+}
+
+"""Input for editing a room"""
+input EditRoomInput {
+  """ID of a room to edit"""
+  id: ID!
+
+  """New name of the room"""
+  name: String!
 }
