@@ -21,7 +21,7 @@ export class RoomsService {
   }
 
   async getRoom(id: string): Promise<RoomType> {
-    const room = await this.roomRepository.roomModel.findOne({ _id: id })
+    const room = await this.roomRepository.roomModel.findById(id)
 
     if (!room) {
       throw new NotFoundException("api.roomNotFound")
@@ -51,7 +51,7 @@ export class RoomsService {
   async editRoom(input: EditRoomInput): Promise<EditRoomPayload> {
     const { id, name } = input
 
-    const room = await this.roomRepository.roomModel.findOne({ _id: id })
+    const room = await this.roomRepository.roomModel.findById(id)
 
     if (!room) {
       throw new NotFoundException("api.roomNotFound")
@@ -68,7 +68,7 @@ export class RoomsService {
   }
 
   async deleteRoom(id: string): Promise<RoomType> {
-    const room = await this.roomRepository.roomModel.findOne({ _id: id })
+    const room = await this.roomRepository.roomModel.findById(id)
 
     if (!room) {
       throw new NotFoundException("api.roomNotFound")

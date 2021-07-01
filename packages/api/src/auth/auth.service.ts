@@ -62,7 +62,7 @@ export class AuthService {
   }
 
   async validateUser(id: string): Promise<User> {
-    const user = await this.userRepository.userModel.findOne({ _id: id })
+    const user = await this.userRepository.userModel.findById(id)
 
     if (!user) {
       return null
