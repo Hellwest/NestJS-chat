@@ -9,6 +9,7 @@ import { UsersModule } from "./users/users.module"
 import { dbConfig } from "./config/db.config"
 import { RoomsModule } from "./rooms/rooms.module"
 import { MessagesModule } from "./messages/messages.module"
+import { SharedModule } from "./shared/shared.module"
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { MessagesModule } from "./messages/messages.module"
     UsersModule,
     RoomsModule,
     MessagesModule,
+    SharedModule,
   ],
   controllers: [AppController],
 })

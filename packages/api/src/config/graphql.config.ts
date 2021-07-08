@@ -1,5 +1,5 @@
 import config = require("config")
-import * as depthLimit from "graphql-depth-limit"
+import depthLimit from "graphql-depth-limit"
 import { DateScalarMode, GqlModuleOptions } from "@nestjs/graphql"
 import { getBoolean } from "./get-boolean"
 
@@ -16,7 +16,9 @@ const configFromFile = config.get<GQLConfig>("graphql")
 
 export const graphQLConfig: GqlModuleOptions = {
   validationRules: [
-    depthLimit(process.env.GRAPHQL_DEPTH_LIMIT || configFromFile.depthLimit),
+    depthLimit(
+      Number(process.env.GRAPHQL_DEPTH_LIMIT) || configFromFile.depthLimit,
+    ),
   ],
   debug: getBoolean(process.env.GRAPHQL_DEBUG, configFromFile.debug),
   playground: getBoolean(
@@ -39,7 +41,4 @@ export const graphQLConfig: GqlModuleOptions = {
     req,
     connection,
   }),
-  subscriptions: {
-    path: "/subscriptions",
-  },
 }
