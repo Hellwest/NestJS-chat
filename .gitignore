@@ -1,6 +1,7 @@
 # compiled output
-/dist
-/node_modules
+dist
+node_modules
+.next
 
 # Logs
 logs
@@ -17,8 +18,8 @@ yarn-error.log*
 /.nyc_output
 
 # IDEs and editors
-/.idea
-/.vscode
+.idea
+.vscode
 .project
 .classpath
 .c9/

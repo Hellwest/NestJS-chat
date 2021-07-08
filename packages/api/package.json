@@ -1,8 +1,7 @@
 {
   "name": "api",
+  "private": true,
   "version": "0.0.1",
-  "description": "",
-  "author": "",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
