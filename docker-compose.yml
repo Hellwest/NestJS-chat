@@ -2,6 +2,7 @@ version: "3.8"
 
 volumes:
   local-nest-chat-data:
+  local-redis-chat-data:
 
 services:
   db:
@@ -29,3 +30,13 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: chat
     depends_on:
       - db
+
+  redis:
+    image: redis:6.2.4-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - local-redis-chat-data:/data
+    command: ["redis-server", "--bind", "redis", "--port", "6379", "--appendonly", "yes"]
