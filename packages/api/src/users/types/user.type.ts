@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql"
 import { GraphQLScalarType } from "graphql"
+
 import { User } from "../user.schema"
 
 @ObjectType({ description: "Chat user" })

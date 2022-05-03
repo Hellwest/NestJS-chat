@@ -1,12 +1,12 @@
 /* eslint-disable filenames/match-regex */
 import NextDocument, {
-  Html,
-  Head,
-  Main,
-  NextScript,
   DocumentContext,
   DocumentInitialProps,
   DocumentProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
 } from "next/document"
 import React, { ReactElement } from "react"
 

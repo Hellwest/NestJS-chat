@@ -1,14 +1,15 @@
-import Redis from "ioredis"
 import { Module } from "@nestjs/common"
 import { MongooseModule } from "@nestjs/mongoose"
-import { RoomsModule } from "../rooms/rooms.module"
+import { RedisPubSub } from "graphql-redis-subscriptions"
+import Redis from "ioredis"
+
 import { redisConfig } from "../config/redis.config"
+import { RoomsModule } from "../rooms/rooms.module"
+import { dateReviver } from "../shared/date-reviver/date-reviver"
 import { MessageRepository } from "./message.repository"
 import { Message, MessageSchema } from "./message.schema"
 import { MessagesResolver } from "./messages.resolver"
 import { MessagesService } from "./messages.service"
-import { RedisPubSub } from "graphql-redis-subscriptions"
-import { dateReviver } from "../shared/date-reviver/date-reviver"
 
 @Module({
   imports: [

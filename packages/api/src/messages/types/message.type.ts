@@ -1,8 +1,8 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql"
 import { GraphQLScalarType } from "graphql"
 
-import { UserType } from "../../users/types/user.type"
 import { RoomType } from "../../rooms/types/room.type"
+import { UserType } from "../../users/types/user.type"
 import { Message } from "../message.schema"
 
 @ObjectType({ description: "Chat message object" })

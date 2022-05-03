@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 import { Document, Types } from "mongoose"
+
 import { Room } from "../rooms/room.schema"
 import { RoomType } from "../rooms/types/room.type"
 import { UserType } from "../users/types/user.type"

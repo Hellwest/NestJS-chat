@@ -3,13 +3,14 @@ import {
   Injectable,
   NotFoundException,
 } from "@nestjs/common"
-import { User } from "../users/user.schema"
-import { UserType } from "../users/types/user.type"
+
 import { RoomsService } from "../rooms/rooms.service"
+import { UserType } from "../users/types/user.type"
+import { User } from "../users/user.schema"
 import { MessageRepository } from "./message.repository"
+import { EditMessageInput } from "./types/edit-message.input"
 import { MessageType } from "./types/message.type"
 import { SendMessageInput } from "./types/send-message.input"
-import { EditMessageInput } from "./types/edit-message.input"
 
 @Injectable()
 export class MessagesService {

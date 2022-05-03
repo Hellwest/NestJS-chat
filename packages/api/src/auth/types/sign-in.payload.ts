@@ -1,4 +1,5 @@
 import { Field, ObjectType } from "@nestjs/graphql"
+
 import { AuthType } from "./auth.type"
 
 @ObjectType({ description: "Payload for signing in" })

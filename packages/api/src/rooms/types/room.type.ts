@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql"
 import { GraphQLScalarType } from "graphql"
+
 import { Room } from "../room.schema"
 
 @ObjectType({ description: "Room object" })

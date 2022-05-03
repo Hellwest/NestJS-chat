@@ -1,4 +1,5 @@
 import { Field, ObjectType } from "@nestjs/graphql"
+
 import { RoomType } from "./room.type"
 
 @ObjectType({ description: "Payload for editing a room" })

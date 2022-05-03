@@ -1,6 +1,7 @@
 import config = require("config")
-import depthLimit from "graphql-depth-limit"
 import { DateScalarMode, GqlModuleOptions } from "@nestjs/graphql"
+import depthLimit from "graphql-depth-limit"
+
 import { getBoolean } from "./get-boolean"
 
 interface GQLConfig {

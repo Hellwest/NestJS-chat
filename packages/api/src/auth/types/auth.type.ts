@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql"
 import { GraphQLScalarType } from "graphql"
+
 import { User } from "../../users/user.schema"
 
 @ObjectType({ description: "User's general information object" })
