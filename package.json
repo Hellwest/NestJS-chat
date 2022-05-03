@@ -2,6 +2,8 @@
   "name": "chat",
   "private": true,
   "devDependencies": {
+    "@commitlint/cli": "16.2.4",
+    "@commitlint/config-conventional": "16.2.4",
     "@typescript-eslint/eslint-plugin": "4.23.0",
     "@typescript-eslint/parser": "4.23.0",
     "eslint": "7.26.0",
@@ -15,12 +17,23 @@
     "eslint-plugin-security": "1.4.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-unicorn": "32.0.1",
+    "husky": "3.0.0",
+    "lint-staged": "9.1.0",
     "prettier": "2.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS --config commitlint.config.js",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "typescript": "^4.3.4"
-  }
+  ]
 }
