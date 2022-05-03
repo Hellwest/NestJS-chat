@@ -1,6 +1,7 @@
 import { Inject, UseGuards } from "@nestjs/common"
 import { Args, Mutation, Query, Resolver, Subscription } from "@nestjs/graphql"
 import { RedisPubSub } from "graphql-redis-subscriptions"
+
 import { GqlAuthGuard } from "../auth/auth.guard"
 import { CurrentUser } from "../auth/user.decorator"
 import { User } from "../users/user.schema"

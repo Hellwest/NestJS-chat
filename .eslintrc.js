@@ -17,6 +17,7 @@ module.exports = {
     "unicorn",
     "optimize-regex",
     "eslint-comments",
+    "simple-import-sort",
   ],
   extends: [
     "plugin:jest/recommended",
@@ -73,6 +74,9 @@ module.exports = {
     "filenames/match-regex": ["error", "^[a-z0-9.-]+$", false],
     "filenames/match-exported": "off",
     "filenames/no-index": "error",
+
+    // simple-import-sort
+    "simple-import-sort/imports": "error",
 
     // ts
     "@typescript-eslint/no-unused-vars": "off",
