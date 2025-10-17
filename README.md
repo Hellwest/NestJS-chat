@@ -21,3 +21,13 @@ Simple NestJS + ReactJS text chat
 * Jest
 * RabbitMQ
 * Docker
+
+## Launch
+
+```bash
+* docker compose up -d
+
+* yarn workspace api start:dev
+```
+
+~~yarn workspace web start:dev~~
